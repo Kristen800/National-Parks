@@ -1,3 +1,4 @@
+'use strict';
 // api keys and endpoint URL
 let apiKey ='v1W3RdMo80x18hJxWpvja534DphNUwR1OITzBeGI';
 let searchURL= 'https://developer.nps.gov/api/v1/parks?';
@@ -27,9 +28,9 @@ function displayResults(responseJson){
   for(let i= 0; i < responseJson.data.length; i++){
     //for each candidate array, add a list item to the result, list description and name.
     $('#results-list').append(
-      `<li><a href="${responseJson.data[i].url}"><h3>${responseJson.data[i].fullName}</h3></a>
+      `<li><a href="${responseJson.data[i].url}" target="_blank"><h3>${responseJson.data[i].fullName}</h3></a>
       <p>${responseJson.data[i].description}</p>
-      <a href="${responseJson.data[i].directionsUrl}">Get Directions</a>
+      <a href="${responseJson.data[i].directionsUrl}" target="_blank">Get Directions</a>
       </li>`
     )};
     $('#result').removeClass('hidden');
